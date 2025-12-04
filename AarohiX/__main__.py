@@ -1,8 +1,14 @@
 import asyncio
 import importlib
 
-from pyrogram import idle
+# ✅ EVENT LOOP FIX (Railway + Python 3.14 issue killer)
+try:
+    asyncio.get_running_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
 
+from pyrogram import idle
 from AarohiX import LOGGER, AarohiX
 from AarohiX.modules import ALL_MODULES
 
@@ -22,5 +28,5 @@ async def anony_boot():
 
 
 if __name__ == "__main__":
-    asyncio.get_event_loop().run_until_complete(anony_boot())
+    asyncio.run(anony_boot())
     LOGGER.info("Stopping AarohiX Bot...")
