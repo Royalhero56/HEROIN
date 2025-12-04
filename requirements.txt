@@ -1,9 +1,5 @@
-Abg==2.3.1
 pyrogram==2.0.106
+tgcrypto
 pymongo
 motor
-requests
-dnspython
-tgcrypto==1.2.2
-asyncio
 python-dotenv
